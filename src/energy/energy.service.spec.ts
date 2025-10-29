@@ -5,12 +5,20 @@ describe('EnergyService', () => {
   let service: EnergyService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [EnergyService],
+    const module = await Test.createTestingModule({
+      providers: [
+        {
+          provide: EnergyService,
+          useValue: {
+            getEnerguateBilling: jest.fn(),
+          },
+        },
+      ],
     }).compile();
 
-    service = module.get<EnergyService>(EnergyService);
+    service = module.get(EnergyService);
   });
+
 
   it('should be defined', () => {
     expect(service).toBeDefined();

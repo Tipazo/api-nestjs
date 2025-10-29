@@ -16,10 +16,12 @@ export class EnergyService {
 
   async getEnerguateBilling(nisID: Number): Promise<EnerguateResponseResult> {
 
-    const url = `${this.configService.get<string>('ENERGUATE_URL')}=${nisID}`;
+    const energuate_url = this.configService.get<string>('ENERGUATE_URL');
+    
+    const api_energuate = `${energuate_url}=${nisID}`;
 
     try {
-      const response = await firstValueFrom(this.httpService.get(url));
+      const response = await firstValueFrom(this.httpService.get(api_energuate));
       const data = response.data;
 
       if (data.error === true) {
@@ -46,5 +48,5 @@ export class EnergyService {
   async getEegsaBilling(contador: string, correlativo: Number) {
     return "To-do"
   }
-  
+
 }
