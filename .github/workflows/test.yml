@@ -9,6 +9,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      ENERGUATE_URL: ${{ secrets.ENERGUATE_URL }}
+      
     steps:
       - name: Checkout código
         uses: actions/checkout@v3

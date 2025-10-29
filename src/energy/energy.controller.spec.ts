@@ -12,7 +12,8 @@ describe('EnergyController (integración)', () => {
       imports: [
         HttpModule,
         ConfigModule.forRoot({
-          isGlobal: true
+          isGlobal: true,
+          envFilePath: process.env.NODE_ENV === 'test' ? '.env' : undefined,
         }),
       ],
       controllers: [EnergyController],
