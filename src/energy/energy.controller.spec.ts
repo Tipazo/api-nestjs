@@ -48,4 +48,12 @@ describe('EnergyController (integración)', () => {
     expect(result).toHaveProperty('message', 'Input string was not in a correct format.');
   })
 
+  it('deberia detornar error al ingresar un nis muy corto', async () => { 
+    const nisID = 610;
+
+    const result = await controller.getEnerguateBilling(nisID);
+    expect(result).toHaveProperty('success', false);
+    expect(result).toHaveProperty('message', 'Este suministro no es válido.');
+  })
+
 });
