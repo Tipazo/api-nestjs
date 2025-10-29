@@ -31,4 +31,20 @@ describe('EnergyController (integración)', () => {
     expect(result.data).toHaveProperty('nombreEmpresa');
   });
 
+  it('deberia detornar error al ingresar un nis muy largo', async () => { 
+    const nisID = 61910100000000;
+
+    const result = await controller.getEnerguateBilling(nisID);
+    expect(result).toHaveProperty('success', false);
+    expect(result).toHaveProperty('message', 'Value was either too large or too small for an Int32.');
+  })
+
+  it('deberia detornar error al ingresar un formato incorrecto', async () => { 
+    const nisID = Number("610Holamundo");
+
+    const result = await controller.getEnerguateBilling(nisID);
+    expect(result).toHaveProperty('success', false);
+    expect(result).toHaveProperty('message', 'Input string was not in a correct format.');
+  })
+
 });
