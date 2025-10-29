@@ -8,6 +8,8 @@ export interface EnerguateResponse {
     montoTotal: number;
     conceptoPrincipal: string;
     fechaProximaLectura: string;
+    direccionServicio: string;
+    departamento: string;
 }
 
 export interface EnerguateResponseResult {

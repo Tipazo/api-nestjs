@@ -10,4 +10,6 @@ export const energuateFieldMap = {
   montoTotal: 'detalleFactura1.1.IMP_CONCEPTO',
   conceptoPrincipal: 'detalleFactura1.1.CONCEPTO',
   fechaProximaLectura: 'proximaLectura.VALOR',
+  direccionServicio: 'dataPersonBill.DIRECCION_SERVICIO',
+  departamento: 'dataPersonBill.DEPARTAMENTO',
 };
